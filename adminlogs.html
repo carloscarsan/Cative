@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logs Cative</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #ffffff; /* Fundo branco, seguindo o padrão */
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .login-container {
+        background-color: #ffffff;
+        padding: 20px;
+        border: 1px solid #cccccc;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        max-width: 400px;
+        width: 100%;
+        margin-top: 20px; /* Espaçamento do topo */
+    }
+
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .login-container input {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        width: calc(100% - 20px); /* Largura ajustada */
+    }
+
+    .login-container button {
+        padding: 10px;
+        background-color: #007bff;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%; /* Botão com largura total */
+    }
+
+    .secret-section {
+        display: none; /* Inicialmente oculto */
+        font-family: Arial, sans-serif;
+        color: #000000;
+        margin-top: 20px; /* Espaçamento do topo */
+        width: 80%;
+        overflow-x: hidden;
+        text-align:start;
+    }
+
+    .secret-section pre {
+        display: none; /* Inicialmente oculto */
+        font-family: Arial, sans-serif;
+        color: #000000;
+        margin-top: 20px; /* Espaçamento do topo */
+        width: 80%;
+        overflow-x: hidden;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <input type="password" id="password" placeholder="Senha de administração">
+        <button onclick="login()">Autenticar</button>
+    </div>
+    <div class="secret-section", id="secretSection">
+        <h1>Notas de Versão</h1>
+            <h2>14/06/2024 09:55 / v0.1.1</h2>
+            <p>- Adaptação de conteúdo e programação para dispositivos mobile.</p>
+            <h2>14/06/2024 10:18 / v0.1.2</h2>
+            <p>- Criado o menu do administrador com as funções de leitura de notas de versão na página cativefotos.top/adminlogs.</p>
+            <p></p>
+            <h2>14/06/2024 10:26 / v0.1.3</h2>
+            <p>- Senha alterada de 'senha' para 'carlosegostoso123'</p>
+            <p></p>
+    </div>
+
+    <script>
+        function login() {
+            const password = document.getElementById('password').value;
+            const secretSection = document.getElementById('secretSection');
+            const loginContainer = document.querySelector('.login-container');
+
+            if (password === 'carlosegostoso123') {
+                loginContainer.style.display = 'none';
+                secretSection.style.display = 'block';
+            } else {
+                alert('Senha incorreta!');
+            }
+        }
+    </script>
+</body>
+</html>

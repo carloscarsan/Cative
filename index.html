@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cative!</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header img {
+    min-width: 10%;
+    max-width: 10%;
+    height: auto;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    color: #ffffff;
+    margin: 0 15px;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 10px 15px;
+}
+
+nav a.active {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    cursor: pointer;
+}
+
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    border-bottom: 2px solid #000000;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.portfolio, .photographers, .projects {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.portfolio-item, .photographer-item, .project-item {
+    flex: 1 1 calc(33.333% - 20px); /* Ajuste conforme necessário */
+    margin: 10px;
+    border: 1px solid #000000;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.home-image {
+    position: relative;
+    width: 100%;
+    height: 528px;
+    overflow: hidden;
+}
+
+.home-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.home-image .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #ffffff;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input, form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #000000;
+}
+
+form button {
+    padding: 10px;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute; /* Alterado de fixed para relative */
+    width: 100%;
+    left: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.linha {
+    height: 3px;
+    width: 100%;
+    background-color: black;
+}
+        .cativeimg {
+            cursor:pointer;
+        }
+
+/* Adicione suas media queries aqui */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    header img {
+        max-width: 100%;
+        height: auto;
+    }
+    nav {
+        flex-direction: column;
+        width: 100%;
+    }
+    nav a {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+    .container {
+        padding: 10px;
+    }
+    .portfolio-item, .photographer-item, .project-item {
+        flex: 1 1 100%;
+    }
+}
+    </style>
+    <script>
+        function showSection(sectionId) {
+            // Esconder todas as seções
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.add('hidden'));
+
+            // Mostrar a seção selecionada
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.classList.remove('hidden');
+            }
+
+            // Alterar o estado ativo dos links de navegação
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            const activeLink = document.querySelector(`nav a[onclick="showSection('${sectionId}')"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mostrar a primeira seção por padrão
+            showSection('home');
+        });
+    </script>
+</head>
+<body>
+
+<header>
+    <img onclick="showSection('home')" class="cativeimg" src="https://i.ibb.co/VBL2Hp4/Design-sem-nome-1.png" alt="Cative">
+    <nav>
+        <a onclick="showSection('home')">HOME</a>
+        <a onclick="showSection('budget-request')">SOLICITE SEU ORÇAMENTO</a>
+        <a onclick="showSection('projects')">PROJETOS</a>
+        <a onclick="showSection('portfolio')">PORTFÓLIO</a>
+        <a onclick="showSection('photographers')">PROFISSIONAIS</a>
+        <a onclick="showSection('contact')">CONTATO</a>
+    </nav>
+
+</header>
+
+<div class="container">
+    <section id="home" class="section">
+        <div class="home-image">
+            <img src="https://i.pinimg.com/originals/4e/d9/3a/4ed93a925416e114dd4f9657e9121c1b.jpg" alt="Imagem grande">
+        </div>
+        <div class="text">
+            <h1>Bem-vindo à Cative!</h1>
+            <div class="linha"></div>
+            <p>Preciso de um texto aqui.</p>
+            <p></p>
+            <p></p>
+            <h1>Quem somos.</h1>
+            <div class="linha"></div>
+            <p>Preciso de um texto aqui.</p>
+            <p></p>
+            <p></p>
+            <h1>Serviços:</h1>
+            <div class="linha"></div>
+            <p>Preciso de um texto aqui.</p>
+            <p></p>
+            <p></p>
+        </div>
+        <footer>
+            <p>&copy; Cative! 2024 | Todos os direitos reservados</p>
+        </footer>
+    </section>
+
+    <section id="portfolio" class="section hidden">
+        <h2 class="section-title">Portfólio</h2>
+        <div class="portfolio">
+            <div class="portfolio-item">Espaço para fotos futuras</div>
+            <div class="portfolio-item">Espaço para fotos futuras</div>
+            <div class="portfolio-item">Espaço para fotos futuras</div>
+        </div>
+        <p></p>
+        <p></p>
+    </section>
+
+    <section id="budget-request" class="section hidden">
+        <h2 class="section-title"><b>Solicite Orçamento</b></h2>
+        <p></p>
+        <form>
+            <a><b>Nome Completo:</b></a>
+            <input type="text" name="name" placeholder="Ex.: Mateus José da Silva" required>
+            <a><b>Email:</b></a>
+            <input type="email" name="email" placeholder="Ex.: mateusjose@email.com" required>
+            <a><b>Endereço:</b></a>
+            <input type="address" name="address" placeholder="Ex.: Rua das Margaridas, nº10, Iriri" required>
+            <a><b>Localização:</b></a>
+            <input type="city" name="city" placeholder="Ex.: Anchieta - Espírito Santo" required>
+            <p></p>
+            <label><b>Escolha o serviço desejado:</b></label>
+            <a></a>
+            <div>
+                <input type="radio" id="ensaio1" name="service" value="ensaio1" required>
+                <label for="ensaio1">Ensaio em espaço fechado</label>
+            </div>
+            <div>
+                <input type="radio" id="ensaio2" name="service" value="ensaio2">
+                <label for="ensaio2">Ensaio em espaço aberto</label>
+            </div>
+            <div>
+                <input type="radio" id="festa1" name="service" value="festa1">
+                <label for="festa1">Cobertura de Festa</label>
+            </div>
+            <div>
+                <input type="radio" id="festa2" name="service" value="festa2">
+                <label for="festa2">Cobertura de Evento</label>
+            </div>
+            <div>
+                <input type="radio" id="objetos" name="service" value="objetos">
+                <label for="objetos">Ensaio de objetos/produtos</label>
+            </div>
+            <p></p>
+                <style>
+                    .checkbox-label {
+                        display: flex;
+                        align-items: center;
+                    }
+                
+                    .checkbox-label input[type="checkbox"] {
+                        margin-right: 10px; /* Espaço entre o checkbox e o texto */
+                    }
+                </style>
+                
+                <p><b>Gostaria de algum serviço adicional? Se sim, qual(is)?</b></p>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="album1" name="services[]" value="album1">
+                    Álbum digital a parte
+                </label><br>
+                
+                <label class="checkbox-label">
+                    <input type="checkbox" id="album2" name="services[]" value="album2">
+                    Álbum físico a parte
+                </label><br>
+                
+                <label class="checkbox-label">
+                    <input type="checkbox" id="ensaio1" name="services[]" value="ensaio1">
+                    Ensaio separado
+                </label><br>
+                
+                <label class="checkbox-label">
+                    <input type="checkbox" id="album3" name="services[]" value="album3">
+                    Book de Casamento
+                </label><br>
+                
+                <label class="checkbox-label">
+                    <input type="checkbox" id="album4" name="services[]" value="album4">
+                    Book Debutante
+                </label><br>
+                
+                <label class="checkbox-label">
+                    <input type="checkbox" id="album5" name="services[]" value="album5">
+                    Book de Festa
+                </label><br>
+                
+                <label class="checkbox-label">
+                    <input type="checkbox" id="produtos" name="services[]" value="produtos">
+                    Produtos extras
+                </label><br>
+            <p></p>
+            <a>Descrição do serviço:</a>
+            <input name="details" rows="5" placeholder="Descreva o mais detalhadamente possível" required>
+            <p></p>
+            <button type="submit">Enviar</button>
+        </form>
+        <p></p>
+        <p></p>
+        <footer>
+            <p>&copy; Cative! 2024 | Todos os direitos reservados</p>
+        </footer>
+    </section>    
+
+    <section id="contact" class="section hidden">
+        <h2 class="section-title">Contato</h2>
+        <form>
+            <input type="text" name="name" placeholder="Seu nome" required>
+            <input type="email" name="email" placeholder="Seu email" required>
+            <textarea name="message" rows="5" placeholder="Sua mensagem" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <section id="photographers" class="section hidden">
+        <h2 class="section-title">Fotógrafos e Videomakers</h2>
+        <div class="photographers">
+            <div class="photographer-item">
+                <img src="#" alt="Fotógrafo 1" style="width: 100%; height: auto;">
+                <p>Descrição do Fotógrafo 1</p>
+                <div>Fotos do Fotógrafo 1</div>
+            </div>
+            <div class="photographer-item">
+                <img src="#" alt="Fotógrafo 2" style="width: 100%; height: auto;">
+                <p>Descrição do Fotógrafo 2</p>
+                <div>Fotos do Fotógrafo 2</div>
+            </div>
+            <div class="photographer-item">
+                <img src="#" alt="Fotógrafo 3" style="width: 100%; height: auto;">
+                <p>Descrição do Fotógrafo 3</p>
+                <div>Fotos do Fotógrafo 3</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section hidden">
+        <h2 class="section-title">Projetos Comuns</h2>
+        <div class="projects">
+            <div class="project-item">
+                <p>Descrição do Projeto 1</p>
+                <div>Fotos do Projeto 1</div>
+            </div>
+            <div class="project-item">
+                <p>Descrição do Projeto 2</p>
+                <div>Fotos do Projeto 2</div>
+            </div>
+            <div class="project-item">
+                <p>Descrição do Projeto 3</p>
+                <div>Fotos do Projeto 3</div>
+            </div>
+        </div>
+    </section>  
+</body>
+</html>
